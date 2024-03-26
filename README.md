@@ -1,1 +1,2 @@
-# projeto-node-professor-turma
+Projeto para desenvolver um sistema utilizando nodejs que permitirá ao
+professor se autenticar em um sistema para visualizar, registrar, excluir suas turmas, assim como registrar atividades para as suas turmas e sair do sistema
