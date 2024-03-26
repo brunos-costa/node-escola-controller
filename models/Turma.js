@@ -7,14 +7,16 @@ const Turma = database.sequelize.define('turmas',{
     }
 })
 
-Turma.sync()// sincronizando com o banco
 
-// Estou dizendo que Professor possui muitas Turmas, e Turma pertence apenas 1 professor
+
+// Estou dizendo que Professor possui muitas Turmas, e Turma pertence a apenas 1 professor
 Professor.hasMany(Turma,{
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
 })
 
 Turma.belongsTo(Professor)
+
+Turma.sync()// sincronizando com o banco
 
 module.exports = Turma

@@ -10,15 +10,20 @@ const porta = 3000
 // CARREGANDO AS ROTAS
 const indexRouter = require('./routes/index')
 const professorRouter = require('./routes/professor')
+const turmaRouter = require('./routes/turma')
 
 // CONFIGURANDO O HANDLEBARS
 app.engine('handlebars', handlebars.engine())// Esta linha configura o Handlebars como mecanismo de visualização, registrando o motor de visualização Handlebars com a chave 
 app.set('view engine','handlebars')// Define o mecanismo de visualização padrão como Handlebars.
-app.set('views','./views')// Define o diretório de visualizações como ./views, onde o Express.js procurará por arquivos de visualização
+
+// CONFIGURAR EXPRESS PARA RECEBER DADOS DE FORMULÁRIO
+app.use(express.urlencoded())
+app.use(express.json())
 
 // ROTAS
 app.use('/',indexRouter)
 app.use('/professor',professorRouter)
+app.use('/turmas',turmaRouter)
 
 
 //EXECUTANDO SERVIDOR

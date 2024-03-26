@@ -1,0 +1,29 @@
+<section class="container">
+    <h1 class="text-center">Cadastro de Pofessores</h1>
+    <form action="/professor/store" method="post">
+
+        <section class="mb-2">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" class="form-control">
+        </section>
+
+        <section class="mb-2">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control">
+        </section>
+
+        <section class="mb-2">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" class="form-control">
+        </section>
+
+        <section class="mb-2">
+            <label for="confirm">Confirme sua senha</label>
+            <input type="password" name="confirm" id="confirm" class="form-control">
+        </section>
+
+        <section class="mb-2">
+            <input type="submit" name="enviar" id="enviar" value="Cadastrar" class="btn btn-primary">
+        </section>
+    </form>
+</section>
