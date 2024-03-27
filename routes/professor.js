@@ -5,10 +5,12 @@ const Professor = require('../models/Professor')
 
 router.get('/',(req, res)=>{
     //res.json({msg:'Rota principal do professor'})
-    res.render('../views/professor/index')
+    //let nome = req.session.nome // acessando uma informação que foi criado por sessão em outro local
+    res.render('../views/professor/index',{dados:nome})
 })
 
 router.get('/create',(req, res)=>{
+    //req.session.nome = 'Bruno' // criando a sessão chamado 'nome' e passando um valor pra ela
     res.render('../views/professor/addProfessor')
 })
 
