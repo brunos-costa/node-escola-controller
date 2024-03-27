@@ -33,8 +33,8 @@ router.post('/autenticar',async (req, res)=>{
     }
 })
 
-router.get('/logout',async (req, res)=>{
-    await req.session.destroy((error)=>{
+router.get('/logout',(req, res)=>{
+    req.session.destroy((error)=>{
         res.redirect('/')
     })
 
