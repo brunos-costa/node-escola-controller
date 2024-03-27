@@ -12,7 +12,7 @@ const porta = 3000
 // CONFIGURANDO O USO DE SESSÃO
 app.use(session({
     secret: 'projeto escola',
-    resave: true,
+    resave: false,
     saveUninitialized: true,//  evitará que o navegador use sessões vazias
   }))
 

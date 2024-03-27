@@ -9,7 +9,9 @@ router.get('/',(req, res)=>{
 })
 
 router.get('/create',(req, res)=>{
-    res.render('../views/turmas/index')
+    //passando os dados do usuário para a página de turma
+    let nome = req.session.usuario
+    res.render('../views/turmas/index',{nomeUsuario:nome})
 })
 
 router.post('/store',(req, res)=>{
@@ -29,7 +31,7 @@ router.post('/store',(req, res)=>{
         }
         else{
             req.flash('sucesso','Turma cadastrada com sucesso')
-            res.redirect('/professor')
+            res.redirect('/turma/create')
         }
     } catch (error) {
         req.flash('error','Não foi possível cadastrar a turma')

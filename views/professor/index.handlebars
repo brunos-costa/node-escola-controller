@@ -1,42 +1,30 @@
 <section class="container">
     <section class="d-flex justify-content-between mt-4">
-        <h3>Turmas do(a) professor(a) {{usuario}}</h3>
+        <h3>Turmas do(a) professor(a) {{nomeUsuario}}</h3>
         <a href="/turma/create" class="btn btn-primary">Cadastrar turma</a>
     </section>
     <hr>
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col">Número</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Ação</th>
             </tr>
         </thead>
         <tbody>
+            {{#each dados}}
             <tr>
-                <th scope="row">1</th>
-                <td>Desenvolvimento de sistemas</td>
+                
+                <td>{{dataValues.nome}}</td>
                 <td>
                     <a href="" class="btn btn-danger">Excluir</a>
                     <a href="" class="btn btn-success">Visualizar</a>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Redes de Computadores</td>
-                <td>
-                    <a href="" class="btn btn-danger">Excluir</a>
-                    <a href="" class="btn btn-success">Visualizar</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Desenvolvimento de Sistemas</td>
-                <td>
-                    <a href="" class="btn btn-danger">Excluir</a>
-                    <a href="" class="btn btn-success">Visualizar</a>
-                </td>
-            </tr>
+            {{else}}
+            <p>Nenhuma turma cadastrada ainda</p>
+            {{/each}}
+
         </tbody>
     </table>
 </section>
