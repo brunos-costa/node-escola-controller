@@ -16,6 +16,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/turmas">Turmas</a>
                     </li>
+
+                    {{#if nomeUsuario}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/logout">Logout</a>
+                    </li>
+                    {{else}}
+
+                    {{/if}}
  
                 </ul>
             </div>

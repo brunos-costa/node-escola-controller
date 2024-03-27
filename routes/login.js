@@ -33,4 +33,11 @@ router.post('/autenticar',async (req, res)=>{
     }
 })
 
+router.get('/logout',async (req, res)=>{
+    await req.session.destroy((error)=>{
+        res.redirect('/')
+    })
+
+})
+
 module.exports = router
