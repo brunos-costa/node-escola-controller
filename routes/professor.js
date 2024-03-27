@@ -6,7 +6,7 @@ const Professor = require('../models/Professor')
 router.get('/',(req, res)=>{
     //res.json({msg:'Rota principal do professor'})
     let nome = req.session.usuario // acessando uma informação que foi criado por sessão em outro local
-    res.render('../views/professor/index',{nomeUsuario:nome})
+    res.render('../views/professor/index',{usuario:nome})// como a sessão está carregado todos os dados preciso especificar o que irei acessar
 })
 
 router.get('/create',(req, res)=>{

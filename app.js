@@ -42,7 +42,7 @@ app.use(express.json())
 // ROTAS
 app.use('/',indexRouter)
 app.use('/professor',professorRouter)
-app.use('/turmas',turmaRouter)
+app.use('/turma',turmaRouter)
 app.use('/login',loginRouter)
 
 

@@ -25,6 +25,7 @@ router.post('/autenticar',async (req, res)=>{
             else{
                 req.flash('sucesso','Usuário logado com sucesso')
                 req.session.usuario = resultado.nome// criando uma sessão com o nome do usuário logado
+                req.session.idUsuario = resultado.id
                 res.redirect('/professor')
             }
         }
