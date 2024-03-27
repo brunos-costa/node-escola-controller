@@ -1,0 +1,11 @@
+<section class="my-1">
+    {{#if sucesso}}
+        <div class="alert alert-success">
+            {{sucesso}}
+        </div>
+    {{else if error}}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+    {{/if}}
+</section>
