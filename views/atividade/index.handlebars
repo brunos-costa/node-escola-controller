@@ -1,14 +1,14 @@
 <section class="container">
     <section class="d-flex justify-content-between mt-4">
         <h3>Turmas do(a) professor(a) {{nomeUsuario}}</h3>
-        <a href="/turma/create" class="btn btn-primary">Cadastrar turma</a>
+        <a href="/atividade/create" class="btn btn-primary">Cadastrar atividade</a>
     </section>
     <hr>
+    <p class="mb-4"><strong>Turma: </strong>{{turma.nome}}</p>
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Ação</th>
+                <th scope="col">Descrição</th>
             </tr>
         </thead>
         <tbody>
@@ -16,13 +16,10 @@
             <tr>
                 
                 <td>{{dataValues.nome}}</td>
-                <td>
-                    <a href="" class="btn btn-danger">Excluir</a>
-                    <a href="/atividade/{{dataValues.id}}" class="btn btn-success" title="Exibir tela de atividades da turma">Visualizar</a>
-                </td>
+
             </tr>
             {{else}}
-            <p>Nenhuma turma cadastrada ainda</p>
+            <p>Nenhuma atividade cadastrada ainda</p>
             {{/each}}
 
         </tbody>
