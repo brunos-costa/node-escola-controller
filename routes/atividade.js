@@ -34,13 +34,13 @@ router.get('/:id',async (req, res)=>{
     let nome = req.session.usuario // acessando uma informação que foi criado por sessão em outro local
     req.session.idTurma = req.params.id// criando uma sessão com o id da turma enviado
     try {
-        let resultado = await Turma.findByPk(req.params.id)
+        let resultado = await Turma.findByPk(req.params.id, {include:Atividade})
         if(!resultado){
             throw new Error()
         }
         else{
-            console.log(resultado.dataValues)
-            res.render('../views/atividade/index',{nomeUsuario:nome, turma:resultado.dataValues})
+            console.log(resultado)
+            res.render('../views/atividade/index',{nomeUsuario:nome, turma:resultado.dataValues, atividades:resultado.atividades})
         }
     } catch (error) {
         req.flash('error','Turma não encontrada')

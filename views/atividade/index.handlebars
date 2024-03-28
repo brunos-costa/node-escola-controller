@@ -4,24 +4,18 @@
         <a href="/atividade/create" class="btn btn-primary">Cadastrar atividade</a>
     </section>
     <hr>
-    <p class="mb-4"><strong>Turma: </strong>{{turma.nome}}</p>
-    <table class="table mt-4">
-        <thead>
-            <tr>
-                <th scope="col">Descrição</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each dados}}
-            <tr>
-                
-                <td>{{dataValues.nome}}</td>
 
-            </tr>
-            {{else}}
-            <p>Nenhuma atividade cadastrada ainda</p>
-            {{/each}}
+    <h4>Turma: {{turma.nome}}</h4>
+    <hr>
 
-        </tbody>
-    </table>
+    <h5 class="my-4">Descrição das atividades </h5>
+    <ol class="list-group list-group-numbered">
+
+        {{#each atividades}}
+            <li class="list-group-item">{{dataValues.descricao}}</li>
+        {{else}}
+        <p>Nenhuma atividade cadastrada ainda</p>
+        {{/each}}       
+
+    </ol>
 </section>
