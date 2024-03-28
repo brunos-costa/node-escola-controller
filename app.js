@@ -30,6 +30,7 @@ const indexRouter = require('./routes/index')
 const professorRouter = require('./routes/professor')
 const turmaRouter = require('./routes/turma')
 const loginRouter = require('./routes/login')
+const atividadeRouter = require('./routes/atividade')
 
 // CONFIGURANDO O HANDLEBARS
 app.engine('handlebars', handlebars.engine({extended:true}))// Esta linha configura o Handlebars como mecanismo de visualização, registrando o motor de visualização Handlebars com a chave 
@@ -44,6 +45,7 @@ app.use('/',indexRouter)
 app.use('/professor',professorRouter)
 app.use('/turma',turmaRouter)
 app.use('/login',loginRouter)
+app.use('/atividade',atividadeRouter)
 
 
 //EXECUTANDO SERVIDOR
