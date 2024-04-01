@@ -4,7 +4,9 @@ const router = express.Router()
 const Professor = require('../models/Professor')
 const Turma = require('../models/Turma')
 
-router.get('/',async (req, res)=>{
+const {verificaUsuario} = require('../helpers/verificaUsuario')
+
+router.get('/',verificaUsuario,async (req, res)=>{
     try {
         let resultado = await Professor.findOne({include:Turma,where:{id:req.session.idUsuario}})
         if(!resultado){
@@ -22,12 +24,12 @@ router.get('/',async (req, res)=>{
 
 })
 
-router.get('/create',(req, res)=>{
+router.get('/create',verificaUsuario,(req, res)=>{
     //req.session.nome = 'Bruno' // criando a sessão chamado 'nome' e passando um valor pra ela
     res.render('../views/professor/addProfessor')
 })
 
-router.post('/store',async(req, res)=>{
+router.post('/store',verificaUsuario,async(req, res)=>{
     //res.render('../views/professor/addProfessor')
     //console.log(req.body)
     //res.json(req.body)

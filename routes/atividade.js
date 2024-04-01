@@ -4,12 +4,14 @@ const router = express.Router()
 const Atividade = require('../models/Atividade')
 const Turma = require('../models/Turma')
 
+const {verificaUsuario} = require('../helpers/verificaUsuario')
+
 // Essa rota precisa vir 1º do que a rota que possui parâmetros, pois na chamada das rotas lá na página 'index' da pasta atividade, pois se uma rota com parametros for chamada 1º, as demais rotas do mesmo grupo poderão ser interpretadas como sendo um parâmetro. 
-router.get('/create',(req,res)=>{
+router.get('/create',verificaUsuario,(req,res)=>{
     res.render('../views/atividade/addAtividade')
 })
 
-router.post('/store',async (req, res)=>{
+router.post('/store',verificaUsuario,async (req, res)=>{
     try {
         let resultado = await Atividade.create({
             descricao:req.body.descricao,
@@ -30,7 +32,7 @@ router.post('/store',async (req, res)=>{
     }
 })
 
-router.get('/:id',async (req, res)=>{
+router.get('/:id',verificaUsuario,async (req, res)=>{
     let nome = req.session.usuario // acessando uma informação que foi criado por sessão em outro local
     req.session.idTurma = req.params.id// criando uma sessão com o id da turma enviado
     try {
