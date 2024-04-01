@@ -2,6 +2,13 @@
     <h1 class="text-center">Cadastro de Pofessores</h1>
     <form action="/professor/store" method="post">
 
+        {{#each erros}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{msg}} {{!-- msg é a variável padrão para exibir dados que são validados pelo express validator --}}                
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/each}}
+
         <section class="mb-2">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" class="form-control">
