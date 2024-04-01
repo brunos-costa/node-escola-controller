@@ -17,10 +17,11 @@
                 
                 <td>{{dataValues.nome}}</td>
                 <td>
-                    <a href="" class="btn btn-danger">Excluir</a>
+                    <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete{{dataValues.id}}">Excluir</a>
                     <a href="/atividade/{{dataValues.id}}" class="btn btn-success" title="Exibir tela de atividades da turma">Visualizar</a>
                 </td>
             </tr>
+             {{> modal nomeTurma=dataValues.nome idTurma=dataValues.id}}
             {{else}}
             <p>Nenhuma turma cadastrada ainda</p>
             {{/each}}

@@ -24,12 +24,12 @@ router.get('/',verificaUsuario,async (req, res)=>{
 
 })
 
-router.get('/create',verificaUsuario,(req, res)=>{
+router.get('/create',(req, res)=>{
     //req.session.nome = 'Bruno' // criando a sessão chamado 'nome' e passando um valor pra ela
     res.render('../views/professor/addProfessor')
 })
 
-router.post('/store',verificaUsuario,async(req, res)=>{
+router.post('/store',async(req, res)=>{
     //res.render('../views/professor/addProfessor')
     //console.log(req.body)
     //res.json(req.body)
@@ -50,5 +50,6 @@ router.post('/store',verificaUsuario,async(req, res)=>{
         res.json({error:`O seguinte erro ocorreu: ${error}`})
     }
 })
+
 
 module.exports = router

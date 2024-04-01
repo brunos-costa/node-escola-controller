@@ -3,18 +3,20 @@ const router = express.Router()
 
 const Turma = require('../models/Turma')
 
-router.get('/',(req, res)=>{
+const {verificaUsuario} = require('../helpers/verificaUsuario')
+
+router.get('/',verificaUsuario,(req, res)=>{
     res.send('Página de Turmas')
     
 })
 
-router.get('/create',(req, res)=>{
+router.get('/create',verificaUsuario,(req, res)=>{
     //passando os dados do usuário para a página de turma
     let nome = req.session.usuario
     res.render('../views/turmas/index',{nomeUsuario:nome})
 })
 
-router.post('/store',(req, res)=>{
+router.post('/store',verificaUsuario,(req, res)=>{
     try {
         if(req.body.nomeTurma == ""){
             req.flash('error','Informe o nome da turma')
@@ -41,6 +43,26 @@ router.post('/store',(req, res)=>{
 
     
     
+})
+
+router.get('/destroy/:id',verificaUsuario,async(req, res)=>{
+    try {
+        let resultado = await Turma.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        if(!resultado){
+            throw new Error()
+        }
+        else{
+            req.flash('sucesso','Registro deletado com sucesso')
+            res.redirect('/professor')
+        }
+    } catch (error) {
+        req.flash('error','Não foi possível excluir o registro')
+        res.redirect('/professor')
+    }
 })
 
 module.exports = router
