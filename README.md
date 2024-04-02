@@ -65,7 +65,7 @@ projeto
     │   
     └── turmas
         │   index.handlebars
-
+```
 ## Controllers
 
 Os controladores são responsáveis por definir as operações para cada recurso do sistema.
